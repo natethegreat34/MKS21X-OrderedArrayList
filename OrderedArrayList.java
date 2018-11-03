@@ -26,23 +26,10 @@ public void helperadd (T element){
     public void add (int index, T element){
       helperadd(element);
       }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      public T set (int index, T value){
+        T love = this.get(index);
+        super.remove(index);
+        helperadd(value);
+        return love;
+      }
 }
