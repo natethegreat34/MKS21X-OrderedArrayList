@@ -18,7 +18,7 @@ else{ return super.set(index, element);
 }
 public boolean add (T element){
   if (element == null){
-    throw new IllegalArgumentException ();
+    throw new IllegalArgumentException ("You done goofed");
   }
 else{ return super.add(element);
 }
