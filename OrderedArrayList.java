@@ -20,16 +20,25 @@ public void helperadd (T element){
   }}
 
   public boolean add (T element){
-      helperadd(element);
-      return true;}
+    if (element == null){
+      throw new IllegalArgumentException ("You done goofed");
+    }
+  else{helperadd(element);
+      return true;}}
 
     public void add (int index, T element){
-      helperadd(element);
+      if (element == null){
+        throw new IllegalArgumentException ();
       }
+      else {helperadd(element);
+      }}
       public T set (int index, T value){
-        T love = this.get(index);
+        if (value == null){
+          throw new IllegalArgumentException ();
+        }
+        else {T love = this.get(index);
         super.remove(index);
         helperadd(value);
         return love;
-      }
+      }}
 }
