@@ -8,30 +8,28 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
 public void helperadd (T element){
-  int i = 0;
-  int val = element.compareTo(this.get(i +1));
+  if (element == null){
+    throw new IllegalArgumentException ();
+  }
+  else {int i = 0;
+  int val = element.compareTo(this.get(i));
   boolean found = false;
-  for (; i + 1< this.size() - 1; i ++){
+  for (; i < this.size() - 1; i ++){
     if (val <= 0)
     {super.add(i, element);}
 }
-  if(val > 0 && (i + 1 == this.size() - 1)){
+
     super.add(element);
   }}
 
   public boolean add (T element){
-    if (element == null){
-      throw new IllegalArgumentException ("You done goofed");
-    }
-  else{helperadd(element);
-      return true;}}
+    helperadd(element);
+      return true;}
 
     public void add (int index, T element){
-      if (element == null){
-        throw new IllegalArgumentException ();
+      this.add(element);
       }
-      else {helperadd(element);
-      }}
+
       public T set (int index, T value){
         if (value == null){
           throw new IllegalArgumentException ();
@@ -40,5 +38,4 @@ public void helperadd (T element){
         super.remove(index);
         helperadd(value);
         return love;
-      }}
-}
+      }}}
