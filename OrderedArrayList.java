@@ -1,4 +1,3 @@
-
 public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T> {
   public OrderedArrayList (){
     super ();
@@ -7,24 +6,24 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     super (startingCapacity);
   }
 
-public void helperadd (T element){
-  if (element == null){
-    throw new IllegalArgumentException ();
-  }
-  else {int i = 0;
-  int val = element.compareTo(this.get(i));
-  boolean found = false;
-  for (; i < this.size() - 1; i ++){
-    if (val <= 0)
-    {super.add(i, element);}
+public int helperadd (T element){
+  int i = 0;
+  boolean notfound = true;
+  while (notfound && i < this.size() ){
+    if (element.compareTo(this.get(i)) <= 0)
+    {notfound = false;
+    }
+    else{i ++;}}
+    return i;
 }
 
-    super.add(element);
-  }}
-
   public boolean add (T element){
-    helperadd(element);
-      return true;}
+    if (element == null){
+      throw new IllegalArgumentException ("No you");
+    }
+    else {
+      super.add(helperadd(element), element);
+      return true;}}
 
     public void add (int index, T element){
       this.add(element);
@@ -32,10 +31,11 @@ public void helperadd (T element){
 
       public T set (int index, T value){
         if (value == null){
-          throw new IllegalArgumentException ();
+          throw new IllegalArgumentException ("No You");
         }
-        else {T love = this.get(index);
-        super.remove(index);
-        helperadd(value);
+        else {
+        T love = this.get(index);
+        this.remove(index);
+        add(value);
         return love;
       }}}
