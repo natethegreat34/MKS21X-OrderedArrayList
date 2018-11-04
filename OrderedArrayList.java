@@ -8,10 +8,10 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
 public int helperadd (T element){
   int i = 0;
-  boolean notfound = true;
-  while (notfound && i < this.size() ){
+  boolean found = false;
+  while (found == false && i < this.size() ){
     if (element.compareTo(this.get(i)) <= 0)
-    {notfound = false;
+    {found = true;
     }
     else{i ++;}}
     return i;
